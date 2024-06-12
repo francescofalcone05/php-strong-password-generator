@@ -1,9 +1,11 @@
 <?php
 $userSize = $_GET['password'];
+$characters = 'qwertyuiopasdfghjklzxcvbnm1234567890.,-_';
 $password = '';
 
 for ($i = 0; $i < $userSize; $i++) {
-    $password .= 'x';
+    $numrand = rand(0, 35);
+    $password .= $characters[$numrand];
 }
 
 ?>
@@ -21,7 +23,9 @@ for ($i = 0; $i < $userSize; $i++) {
 
     <div class="container">
 
-        <p> <?php
+        <p>
+            La tua password super sicura è :
+            <?php
             echo $password;
             ?>
         </p>

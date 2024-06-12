@@ -1,21 +1,6 @@
 <?php
-function generatoreP()
-{
-    if (isset($_POST['submitButton'])) {
-        $userSize = $_POST['password'];
-        $characters = 'QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890.,-_';
-        $password = '';
-        $paragraph = (empty($_POST) || $userSize == 0) ? '' : 'La tua password super sicura è :';
 
-
-        for ($i = 0; $i < $userSize; $i++) {
-            $numrand = rand(0, 65);
-            $password .= $characters[$numrand];
-        }
-        echo $paragraph . ' ' . $password;
-    }
-};
-
+include __DIR__ . '/elabora.php';
 
 ?>
 <!DOCTYPE html>
@@ -41,6 +26,8 @@ function generatoreP()
                 <option value="6">6</option>
                 <option value="8">8</option>
                 <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
             </select>
             <button type="submit" name="submitButton">Invia</button>
 
@@ -49,7 +36,10 @@ function generatoreP()
         <p>
 
             <?php
-            echo generatoreP();
+            if (isset($_POST['password'])) {
+
+                echo generatoreP($userSize);
+            }
             ?>
         </p>
 

@@ -1,10 +1,10 @@
 <?php
 $userSize = $_GET['password'];
-$characters = 'qwertyuiopasdfghjklzxcvbnm1234567890.,-_';
+$characters = 'QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890.,-_';
 $password = '';
 
 for ($i = 0; $i < $userSize; $i++) {
-    $numrand = rand(0, 35);
+    $numrand = rand(0, 65);
     $password .= $characters[$numrand];
 }
 

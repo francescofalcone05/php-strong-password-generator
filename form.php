@@ -1,16 +1,20 @@
 <?php
-// if (isset($_GET)) {
-//     $userSize = $_GET['password'];
-//     $characters = 'QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890.,-_';
-//     $password = '';
-//     $paragraph = (empty($_GET) || $userSize == 0) ? '' : 'La tua password super sicura è :';
+function generatoreP()
+{
+    if (isset($_POST['submitButton'])) {
+        $userSize = $_POST['password'];
+        $characters = 'QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890.,-_';
+        $password = '';
+        $paragraph = (empty($_POST) || $userSize == 0) ? '' : 'La tua password super sicura è :';
 
 
-//     for ($i = 0; $i < $userSize; $i++) {
-//         $numrand = rand(0, 65);
-//         $password .= $characters[$numrand];
-//     }
-// }
+        for ($i = 0; $i < $userSize; $i++) {
+            $numrand = rand(0, 65);
+            $password .= $characters[$numrand];
+        }
+        echo $paragraph . ' ' . $password;
+    }
+};
 
 
 ?>
@@ -45,19 +49,7 @@
         <p>
 
             <?php
-            if (isset($_POST['submitButton'])) {
-                $userSize = $_POST['password'];
-                $characters = 'QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890.,-_';
-                $password = '';
-                $paragraph = (empty($_POST) || $userSize == 0) ? '' : 'La tua password super sicura è :';
-
-
-                for ($i = 0; $i < $userSize; $i++) {
-                    $numrand = rand(0, 65);
-                    $password .= $characters[$numrand];
-                }
-                echo $paragraph . ' ' . $password;
-            }
+            echo generatoreP();
             ?>
         </p>
 

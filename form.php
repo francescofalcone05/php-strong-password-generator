@@ -29,7 +29,7 @@
     <div class="container">
         <h1>Genera la tua password</h1>
 
-        <form action="form.php" method="GET">
+        <form action="form.php" method="POST">
 
             <label for="password">Lunghezza password</label>
             <select name="password" id="password">
@@ -45,11 +45,11 @@
         <p>
 
             <?php
-            if (isset($_GET['submitButton'])) {
-                $userSize = $_GET['password'];
+            if (isset($_POST['submitButton'])) {
+                $userSize = $_POST['password'];
                 $characters = 'QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890.,-_';
                 $password = '';
-                $paragraph = (empty($_GET) || $userSize == 0) ? '' : 'La tua password super sicura è :';
+                $paragraph = (empty($_POST) || $userSize == 0) ? '' : 'La tua password super sicura è :';
 
 
                 for ($i = 0; $i < $userSize; $i++) {
